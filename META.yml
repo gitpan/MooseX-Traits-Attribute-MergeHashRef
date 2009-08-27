@@ -1,0 +1,18 @@
+---
+abstract: 'Merging HashRef attribute'
+author:
+  - 'Moritz Onken'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092310'
+license: bsd
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Traits-Attribute-MergeHashRef
+requires:
+  File::Find::Rule: 0
+  Hash::Merge: 0
+  Moose: 0
+  Test::More: 0.92
+resources:
+  repository: ~
+version: 1.000

@@ -1,0 +1,37 @@
+NAME
+    MooseX::Traits::Attribute::MergeHashRef - Merging HashRef attribute
+
+VERSION
+    version 1.000
+
+SYNOPSIS
+        package MyClass;
+        use Moose;
+        has stash => ( is => 'rw', isa => 'HashRef', traits => [qw(MergeHashRef)] );
+
+        my $class = MyClass->new;
+        $class->stash({ animals => { dogs => 1 } });
+        # $class->stash: { animals => { dogs => 1 } }
+        $class->stash({ animals => { cats => 2 } });
+        # $class->stash: { animals => { dogs => 1, cats => 2 } }
+        $class->set_stash({ foo => bar });
+        # $class->stash: { foo => bar });
+        $class->clear_stash;
+        # $class->stash: undef
+
+DESCRIPTION
+    This trait will merge values added to a HashRef attribute. It uses
+    Hash::Merge to combine them. The method "set_$attr" which resets the
+    attribute with a given hashref is also created. Call "clear_$attr" to
+    clear the attribute.
+
+AUTHOR
+      Moritz Onken
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2009 by Moritz Onken.
+
+    This is free software, licensed under:
+
+      The (three-clause) BSD License
+
