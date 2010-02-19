@@ -1,6 +1,5 @@
 package MooseX::Traits::Attribute::MergeHashRef;
-our $VERSION = '1.000';
-
+our $VERSION = '1.001';
 
 use base 'Moose::Meta::Method::Accessor';
 
@@ -36,8 +35,15 @@ $_[1] = merge ($_[1], $old) if(defined $old && defined $_[1]);
 
 
 
-
 =pod
+
+=head1 NAME
+
+MooseX::Traits::Attribute::MergeHashRef
+
+=head1 VERSION
+
+version 1.001
 
 =head1 NAME
 
@@ -45,7 +51,7 @@ MooseX::Traits::Attribute::MergeHashRef - Merging HashRef attribute
 
 =head1 VERSION
 
-version 1.000
+version 1.001
 
 =head1 SYNOPSIS
 
@@ -71,18 +77,17 @@ Call C<clear_$attr> to clear the attribute.
 
 =head1 AUTHOR
 
-  Moritz Onken
+Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2009 by Moritz Onken.
+This software is Copyright (c) 2010 by Moritz Onken.
 
 This is free software, licensed under:
 
   The (three-clause) BSD License
 
-=cut 
-
+=cut
 
 
 __END__

@@ -1,8 +1,9 @@
-package Moose::Meta::Attribute::Custom::Trait::MergeHashRef; 
+package Moose::Meta::Attribute::Custom::Trait::MergeHashRef;
+our $VERSION = '1.001'; 
 use Moose::Role;
 use MooseX::Traits::Attribute::MergeHashRef;
 
-has '+clearer' => (default => sub { 'clear_' . $_[0]->name } );
+has 'clearer' => (is => 'rw', default => sub { 'clear_' . $_[0]->name } );
 
 sub accessor_metaclass { 'MooseX::Traits::Attribute::MergeHashRef' }
 
@@ -16,7 +17,6 @@ after 'install_accessors' => sub {
 
 1;
 __END__
-
 =pod
 
 =head1 NAME
@@ -25,20 +25,19 @@ Moose::Meta::Attribute::Custom::Trait::MergeHashRef
 
 =head1 VERSION
 
-version 1.000
+version 1.001
 
 =head1 AUTHOR
 
-  Moritz Onken
+Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2009 by Moritz Onken.
+This software is Copyright (c) 2010 by Moritz Onken.
 
 This is free software, licensed under:
 
   The (three-clause) BSD License
 
-=cut 
-
+=cut
 

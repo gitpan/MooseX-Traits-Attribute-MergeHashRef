@@ -2,17 +2,17 @@
 abstract: 'Merging HashRef attribute'
 author:
   - 'Moritz Onken'
-generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092310'
+generated_by: 'Dist::Zilla version 1.100160'
 license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: MooseX-Traits-Attribute-MergeHashRef
 requires:
-  File::Find::Rule: 0
+  ExtUtils::MakeMaker: 6.11
   Hash::Merge: 0
   Moose: 0
   Test::More: 0.92
 resources:
-  repository: ~
-version: 1.000
+  repository: http://github.com/monken/MooseX-Traits-Attribute-MergeHashRef
+version: 1.001
