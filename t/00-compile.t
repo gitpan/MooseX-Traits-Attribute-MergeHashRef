@@ -1,9 +1,21 @@
 #!perl
+#
+# This file is part of MooseX-Traits-Attribute-MergeHashRef
+#
+# This software is Copyright (c) 2011 by Moritz Onken.
+#
+# This is free software, licensed under:
+#
+#   The (three-clause) BSD License
+#
 
 use strict;
 use warnings;
 
 use Test::More;
+
+
+
 use File::Find;
 use File::Temp qw{ tempdir };
 
@@ -23,22 +35,23 @@ find(
 
 my @scripts = glob "bin/*";
 
-plan tests => scalar(@modules) + scalar(@scripts);
+my $plan = scalar(@modules) + scalar(@scripts);
+$plan ? (plan tests => $plan) : (plan skip_all => "no tests to run");
 
 {
     # fake home for cpan-testers
     # no fake requested ## local $ENV{HOME} = tempdir( CLEANUP => 1 );
 
-    is( qx{ $^X -Ilib -M$_ -e "print '$_ ok'" }, "$_ ok", "$_ loaded ok" )
+    like( qx{ $^X -Ilib -e "require $_; print '$_ ok'" }, qr/^\s*$_ ok/s, "$_ loaded ok" )
         for sort @modules;
 
     SKIP: {
-        eval "use Test::Script; 1;";
+        eval "use Test::Script 1.05; 1;";
         skip "Test::Script needed to test script compilation", scalar(@scripts) if $@;
         foreach my $file ( @scripts ) {
             my $script = $file;
             $script =~ s!.*/!!;
-            script_compiles_ok( $file, "$script script compiles" );
+            script_compiles( $file, "$script script compiles" );
         }
     }
 }

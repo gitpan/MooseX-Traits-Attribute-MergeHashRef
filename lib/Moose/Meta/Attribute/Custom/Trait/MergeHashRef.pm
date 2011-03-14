@@ -1,12 +1,22 @@
+#
+# This file is part of MooseX-Traits-Attribute-MergeHashRef
+#
+# This software is Copyright (c) 2011 by Moritz Onken.
+#
+# This is free software, licensed under:
+#
+#   The (three-clause) BSD License
+#
 package Moose::Meta::Attribute::Custom::Trait::MergeHashRef;
-our $VERSION = '1.001'; 
+BEGIN {
+  $Moose::Meta::Attribute::Custom::Trait::MergeHashRef::VERSION = '1.002';
+} 
 use Moose::Role;
 use MooseX::Traits::Attribute::MergeHashRef;
 
 has 'clearer' => (is => 'rw', default => sub { 'clear_' . $_[0]->name } );
 
 sub accessor_metaclass { 'MooseX::Traits::Attribute::MergeHashRef' }
-
 
 after 'install_accessors' => sub { 
     my $attr  = shift;
@@ -25,7 +35,7 @@ Moose::Meta::Attribute::Custom::Trait::MergeHashRef
 
 =head1 VERSION
 
-version 1.001
+version 1.002
 
 =head1 AUTHOR
 
@@ -33,7 +43,7 @@ Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Moritz Onken.
+This software is Copyright (c) 2011 by Moritz Onken.
 
 This is free software, licensed under:
 
